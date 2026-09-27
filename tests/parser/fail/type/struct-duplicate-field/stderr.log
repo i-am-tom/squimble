@@ -1,0 +1,5 @@
+tests/parser/fail/type/struct-duplicate-field/main.sq:1:43:
+  |
+1 | alias x = { name : string, size : number, name : number }
+  |                                           ^
+duplicate field "name"
