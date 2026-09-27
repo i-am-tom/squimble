@@ -7,12 +7,16 @@ module Squimble.Grammar.Type
   , type'
   ) where
 
+import Control.Monad (foldM)
 import Data.Kind qualified as Hask
+import Data.Map.Strict (Map)
+import Data.Map.Strict qualified as Map
+import Data.Text (Text)
 import GHC.Generics (Generic)
 import Prelude hiding (span)
-import Squimble.Grammar.Token
 import Squimble.Grammar.Monad (MonadParser)
 import Squimble.Grammar.Span (Spanner (..), Span, spanning)
+import Squimble.Grammar.Token
 import Text.Megaparsec
 
 -- | A type used in the program.
@@ -21,8 +25,8 @@ data Type
   = TypeName Span (Maybe (Name "module")) (Name "type")
   | TypeArray Span Type
   | TypeDictionary Span Type
-  | TypeStruct Span [(Field, Type)]
-  | TypeVariant Span [(Name "constructor", Type)]
+  | TypeStruct Span (Map Field Type)
+  | TypeVariant Span (Map (Name "constructor") Type)
   | TypeOptional Span Type
   deriving (Eq, Ord) via Spanner Type
   deriving stock (Generic, Show)
@@ -60,28 +64,49 @@ dictionary span = keyword "map" *> do
 -- | Parse a 'TypeStruct'.
 struct :: MonadParser e m => Span -> m Type
 struct span = do
-  let entry :: MonadParser e m => m (Field, Type)
-      entry = liftA2 (,) (field <* symbol ":") type'
+  let entry :: MonadParser e m => m (Int, Field, Type)
+      entry = do
+        offset  <- space *> getOffset
+        key     <- field <* symbol ":"
+        content <- type'
 
-  content <- separatedBetween "{" "," "}" entry
+        pure (offset, key, content)
+
+  entries <- separatedBetween "{" "," "}" entry
+  content <- unique entries "field" \(Field _ key) -> key
+
   pure (TypeStruct span content)
 
 -- | Parse a 'TypeVariant'.
 variant :: MonadParser e m => Span -> m Type
 variant span = do
-  content <- separatedBetween "<" "," ">" constructor
+  entries <- separatedBetween "<" "," ">" constructor
+  content <- unique entries "constructor" \(Name _ key) -> key
+
   pure (TypeVariant span content)
 
 -- | Parse a 'TypeVariant' constructor. An empty struct payload can be emitted.
-constructor :: MonadParser e m => m (Name "constructor", Type)
+constructor :: MonadParser e m => m (Int, Name "constructor", Type)
 constructor = do
   let unit :: MonadParser e m => m Type
-      unit = spanning "type" \span -> pure (TypeStruct span [])
+      unit = spanning "type" \span -> pure (TypeStruct span Map.empty)
 
+  offset  <- space *> getOffset
   key     <- name
   content <- alternatives [symbol ":" *> type', unit]
 
-  pure (key, content)
+  pure (offset, key, content)
+
+-- | Collect entries into a 'Map', failing at the first repeated key.
+unique :: (MonadParser e m, Ord k) => [(Int, k, v)] -> String -> (k -> Text) -> m (Map k v)
+unique entries entity describe = foldM insert Map.empty entries
+  where
+    insert result (offset, key, content) = case Map.lookup key result of
+      Nothing -> pure (Map.insert key content result)
+      Just __ -> region (setErrorOffset offset) (fail message)
+        where
+          message :: String
+          message = "duplicate " ++ entity ++ " " ++ show (describe key)
 
 -- | Parse a 'TypeName'.
 typename :: MonadParser e m => Span -> m Type
