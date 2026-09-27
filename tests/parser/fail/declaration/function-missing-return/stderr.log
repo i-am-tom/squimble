@@ -1,0 +1,6 @@
+tests/parser/fail/declaration/function-missing-return/main.sq:1:24:
+  |
+1 | function f(a : string) { a }
+  |                        ^^
+unexpected "{ "
+expecting "->"

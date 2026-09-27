@@ -1,0 +1,6 @@
+tests/parser/fail/expression/operator-chained-comparison/main.sq:1:40:
+  |
+1 | implementation main { output x = a < b < c }
+  |                                        ^
+unexpected '<'
+expecting ';' or '}'

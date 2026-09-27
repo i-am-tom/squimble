@@ -1,0 +1,6 @@
+tests/parser/fail/type/variant-missing-type/main.sq:1:17:
+  |
+1 | alias x = < a : >
+  |                 ^
+unexpected "><newline>"
+expecting type

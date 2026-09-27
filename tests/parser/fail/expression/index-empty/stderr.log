@@ -1,0 +1,6 @@
+tests/parser/fail/expression/index-empty/main.sq:1:36:
+  |
+1 | implementation main { output x = a[] }
+  |                                    ^^^
+unexpected "] }<newline>"
+expecting expression

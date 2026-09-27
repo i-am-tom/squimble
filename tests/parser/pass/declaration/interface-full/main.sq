@@ -1,0 +1,16 @@
+interface storage {
+  stages {
+    create,
+    configure
+  }
+
+  input {
+    prefix : string @ create required,
+    tags : map<string>? @ configure
+  }
+
+  output {
+    arn : string @ create,
+    total_bytes : number @ configure
+  }
+}

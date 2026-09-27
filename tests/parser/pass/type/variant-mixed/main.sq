@@ -1,0 +1,1 @@
+alias maybe_name = < none, some : string? >

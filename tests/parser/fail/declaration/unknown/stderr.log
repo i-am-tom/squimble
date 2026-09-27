@@ -1,0 +1,6 @@
+tests/parser/fail/declaration/unknown/main.sq:1:1:
+  |
+1 | bogus thing
+  | ^^^^^^^^^^^
+unexpected "bogus thing<newline>"
+expecting module

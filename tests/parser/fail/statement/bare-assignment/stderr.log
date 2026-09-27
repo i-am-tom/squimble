@@ -1,0 +1,6 @@
+tests/parser/fail/statement/bare-assignment/main.sq:1:25:
+  |
+1 | implementation main { x = 1 }
+  |                         ^^
+unexpected "= "
+expecting "<-", '_', or alphanumeric character

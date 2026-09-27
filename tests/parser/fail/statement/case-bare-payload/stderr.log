@@ -1,0 +1,6 @@
+tests/parser/fail/statement/case-bare-payload/main.sq:1:34:
+  |
+1 | implementation main { case r { ok: p -> { output c = p.code }, bad -> { } } }
+  |                                  ^^
+unexpected ": "
+expecting "->", '_', or alphanumeric character

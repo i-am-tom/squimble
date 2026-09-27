@@ -1,0 +1,1 @@
+interface x { output { a : string @ create required } }

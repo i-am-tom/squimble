@@ -1,0 +1,1 @@
+implementation main { output x = <ok: { code: 200 }>; output y = <failed: "timed out"> }

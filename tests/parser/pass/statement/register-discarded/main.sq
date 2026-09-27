@@ -1,0 +1,1 @@
+implementation main { _ <- register cloud::bucket as regional { name = "x" } }

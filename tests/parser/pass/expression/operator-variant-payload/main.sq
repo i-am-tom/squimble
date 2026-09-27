@@ -1,0 +1,1 @@
+implementation main { output x = <n: (a > b)>; output y = <m: a < b> }

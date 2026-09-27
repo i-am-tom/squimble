@@ -1,0 +1,1 @@
+implementation main { output x = case r { <ok: p> -> p.code, <bad> -> 500 } }

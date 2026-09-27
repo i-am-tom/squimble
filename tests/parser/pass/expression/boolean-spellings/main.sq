@@ -1,0 +1,1 @@
+implementation main { output a = true; output b = <true>; output c = <true: { }> }

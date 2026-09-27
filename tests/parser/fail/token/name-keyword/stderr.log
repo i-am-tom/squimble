@@ -1,0 +1,5 @@
+tests/parser/fail/token/name-keyword/main.sq:1:16:
+  |
+1 | alias interface = string
+  |                ^
+"interface" is a keyword

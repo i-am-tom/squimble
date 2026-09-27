@@ -1,0 +1,6 @@
+implementation main {
+  x <- register cloud::bucket as primary {
+    name = "audit-log",
+    versioning = true
+  }
+}

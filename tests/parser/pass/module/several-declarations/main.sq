@@ -1,0 +1,6 @@
+import cloud from "./cloud"
+import app from "./storage"
+
+alias identifier = string
+
+implementation main { }

@@ -1,0 +1,6 @@
+tests/parser/fail/statement/if-missing-then/main.sq:1:31:
+  |
+1 | implementation main { if flag { output x = 1 } }
+  |                               ^^^^
+unexpected "{ ou"
+expecting "then", '_', or alphanumeric character

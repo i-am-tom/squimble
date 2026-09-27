@@ -1,0 +1,6 @@
+tests/parser/fail/interface/input-missing-type/main.sq:1:27:
+  |
+1 | interface x { input { a : @ create } }
+  |                           ^^^^^
+unexpected "@ cre"
+expecting type

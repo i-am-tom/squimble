@@ -1,0 +1,6 @@
+tests/parser/fail/declaration/import-missing-path/main.sq:2:1:
+  |
+2 | <empty line>
+  | ^
+unexpected end of input
+expecting path

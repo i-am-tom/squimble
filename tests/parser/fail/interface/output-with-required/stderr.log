@@ -1,0 +1,6 @@
+tests/parser/fail/interface/output-with-required/main.sq:1:44:
+  |
+1 | interface x { output { a : string @ create required } }
+  |                                            ^
+unexpected 'r'
+expecting ',', '}', or inputs

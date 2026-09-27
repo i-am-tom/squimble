@@ -1,0 +1,6 @@
+tests/parser/fail/declaration/trailing-garbage/main.sq:2:1:
+  |
+2 | !
+  | ^
+unexpected "!<newline>"
+expecting declaration

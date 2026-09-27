@@ -1,0 +1,1 @@
+implementation main { case r { <ok: _> -> { }, <failed: m> -> { } } }

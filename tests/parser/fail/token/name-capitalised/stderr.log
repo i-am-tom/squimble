@@ -1,0 +1,6 @@
+tests/parser/fail/token/name-capitalised/main.sq:1:7:
+  |
+1 | alias Thing = string
+  |       ^
+unexpected 'T'
+expecting name

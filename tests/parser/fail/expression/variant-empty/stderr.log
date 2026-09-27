@@ -1,0 +1,6 @@
+tests/parser/fail/expression/variant-empty/main.sq:1:35:
+  |
+1 | implementation main { output x = <> }
+  |                                   ^
+unexpected '>'
+expecting name

@@ -1,0 +1,6 @@
+tests/parser/fail/expression/object-missing-value/main.sq:1:39:
+  |
+1 | implementation main { output x = { k: } }
+  |                                       ^^^
+unexpected "} }<newline>"
+expecting expression

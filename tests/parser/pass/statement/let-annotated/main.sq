@@ -1,0 +1,1 @@
+implementation main { let x : integer = 1234 }

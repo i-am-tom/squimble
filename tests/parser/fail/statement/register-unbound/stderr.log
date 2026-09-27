@@ -1,0 +1,5 @@
+tests/parser/fail/statement/register-unbound/main.sq:1:31:
+  |
+1 | implementation main { register cloud::bucket as regional { } }
+  |                               ^
+"register" is a keyword

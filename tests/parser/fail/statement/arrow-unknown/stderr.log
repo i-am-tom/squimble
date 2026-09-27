@@ -1,0 +1,6 @@
+tests/parser/fail/statement/arrow-unknown/main.sq:1:28:
+  |
+1 | implementation main { x <- bogus }
+  |                            ^^^^^^^
+unexpected "bogus }<newline>"
+expecting "foreach" or "register"

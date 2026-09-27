@@ -1,0 +1,1 @@
+interface x { output { arn : string @ create } }

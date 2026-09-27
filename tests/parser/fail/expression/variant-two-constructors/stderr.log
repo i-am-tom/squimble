@@ -1,0 +1,6 @@
+tests/parser/fail/expression/variant-two-constructors/main.sq:1:39:
+  |
+1 | implementation main { output x = <a: 1, b: 2> }
+  |                                       ^
+unexpected ','
+expecting '.', '>', digit, index, or operator

@@ -1,0 +1,1 @@
+implementation main { output x = true; output y = false }

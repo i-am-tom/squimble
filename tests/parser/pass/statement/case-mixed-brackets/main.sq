@@ -1,0 +1,1 @@
+implementation main { case x { <true> -> { }, false -> { } } }

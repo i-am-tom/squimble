@@ -1,0 +1,6 @@
+tests/parser/fail/statement/case-missing-arrow/main.sq:1:36:
+  |
+1 | implementation main { case x { <a> { } } }
+  |                                    ^^
+unexpected "{ "
+expecting "->"

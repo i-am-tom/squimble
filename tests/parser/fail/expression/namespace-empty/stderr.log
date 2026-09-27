@@ -1,0 +1,6 @@
+tests/parser/fail/expression/namespace-empty/main.sq:1:40:
+  |
+1 | implementation main { output x = app:: }
+  |                                        ^
+unexpected '}'
+expecting name

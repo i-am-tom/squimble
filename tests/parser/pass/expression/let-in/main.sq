@@ -1,0 +1,1 @@
+implementation main { output x = let a = 1 in a + 2 }

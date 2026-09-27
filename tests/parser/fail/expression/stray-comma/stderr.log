@@ -1,0 +1,6 @@
+tests/parser/fail/expression/stray-comma/main.sq:1:38:
+  |
+1 | implementation main { output x = [1, ,2] }
+  |                                      ^^^^
+unexpected ",2] "
+expecting expression

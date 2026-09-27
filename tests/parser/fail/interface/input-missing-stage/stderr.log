@@ -1,0 +1,6 @@
+tests/parser/fail/interface/input-missing-stage/main.sq:1:34:
+  |
+1 | interface x { input { a : string } }
+  |                                  ^
+unexpected '}'
+expecting '@', '_', or alphanumeric character

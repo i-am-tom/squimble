@@ -1,0 +1,6 @@
+tests/parser/fail/statement/case-half-bracket/main.sq:1:38:
+  |
+1 | implementation main { case x { <true -> { } } }
+  |                                      ^
+unexpected '-'
+expecting '>', '_', or alphanumeric character

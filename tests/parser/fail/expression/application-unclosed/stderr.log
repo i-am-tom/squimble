@@ -1,0 +1,6 @@
+tests/parser/fail/expression/application-unclosed/main.sq:1:38:
+  |
+1 | implementation main { output x = f(1 }
+  |                                      ^
+unexpected '}'
+expecting ')' or ','

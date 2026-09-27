@@ -1,0 +1,6 @@
+implementation main {
+  case result {
+    <ok: payload>     -> { output code = payload.code },
+    <failed: message> -> { output code = 500 }
+  }
+}

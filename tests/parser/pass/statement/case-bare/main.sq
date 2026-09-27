@@ -1,0 +1,6 @@
+implementation main {
+  case flag {
+    true  -> { },
+    false -> { }
+  }
+}

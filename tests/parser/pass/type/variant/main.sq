@@ -1,0 +1,1 @@
+alias result = < ok : { code : number }, failed : string >

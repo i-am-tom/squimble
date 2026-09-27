@@ -1,0 +1,6 @@
+tests/parser/fail/expression/let-missing-in/main.sq:1:44:
+  |
+1 | implementation main { output x = let a = 1 }
+  |                                            ^
+unexpected "}<newline>"
+expecting "in" or digit

@@ -1,0 +1,1 @@
+implementation main { x <- register cloud::bucket as primary }

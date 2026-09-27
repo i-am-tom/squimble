@@ -1,0 +1,6 @@
+tests/parser/fail/declaration/function-empty-body/main.sq:1:26:
+  |
+1 | function f() -> string { }
+  |                          ^
+unexpected "}<newline>"
+expecting expression

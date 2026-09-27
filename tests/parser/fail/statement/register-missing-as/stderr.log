@@ -1,0 +1,6 @@
+tests/parser/fail/statement/register-missing-as/main.sq:1:44:
+  |
+1 | implementation main { x <- register bucket primary }
+  |                                            ^^
+unexpected "pr"
+expecting "as", '_', or alphanumeric character

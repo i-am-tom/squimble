@@ -1,0 +1,6 @@
+tests/parser/fail/expression/group-unclosed/main.sq:1:41:
+  |
+1 | implementation main { output x = (1 + 2 }
+  |                                         ^
+unexpected '}'
+expecting ')' or digit

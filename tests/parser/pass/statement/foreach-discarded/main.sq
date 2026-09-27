@@ -1,0 +1,1 @@
+implementation main { _ <- foreach k in regions as per_region { } }

@@ -1,0 +1,6 @@
+tests/parser/fail/expression/if-missing-else/main.sq:1:46:
+  |
+1 | implementation main { output x = if p then 1 }
+  |                                              ^
+unexpected "}<newline>"
+expecting "else" or digit

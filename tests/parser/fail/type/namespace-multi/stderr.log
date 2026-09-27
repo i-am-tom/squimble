@@ -1,0 +1,5 @@
+tests/parser/fail/type/namespace-multi/main.sq:1:15:
+  |
+1 | alias x = a::b::c
+  |               ^
+namespaces cannot be nested

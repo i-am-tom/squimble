@@ -1,0 +1,1 @@
+implementation main { case t { <prod> -> { _ <- register cloud::bucket as b { } }, <dev> -> { } } }

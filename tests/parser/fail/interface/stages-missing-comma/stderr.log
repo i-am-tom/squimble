@@ -1,0 +1,6 @@
+tests/parser/fail/interface/stages-missing-comma/main.sq:1:31:
+  |
+1 | interface x { stages { create configure } }
+  |                               ^
+unexpected 'c'
+expecting ',' or '}'

@@ -1,0 +1,1 @@
+function describe(r : result) -> string { case r { <ok: p> -> p.name, <bad> -> "no" } }

@@ -1,0 +1,1 @@
+implementation main { output x = let a : string? = none in a ?? "b" }

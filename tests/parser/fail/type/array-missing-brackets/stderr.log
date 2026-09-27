@@ -1,0 +1,6 @@
+tests/parser/fail/type/array-missing-brackets/main.sq:2:1:
+  |
+2 | <empty line>
+  | ^
+unexpected end of input
+expecting '<'

@@ -1,0 +1,6 @@
+tests/parser/fail/expression/access-missing-field/main.sq:1:43:
+  |
+1 | implementation main { output x = primary. }
+  |                                           ^
+unexpected '}'
+expecting field

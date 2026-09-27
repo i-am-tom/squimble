@@ -1,0 +1,1 @@
+implementation main { output x = main_storage.primary.size_bytes }

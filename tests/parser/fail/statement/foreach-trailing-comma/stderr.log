@@ -1,0 +1,5 @@
+tests/parser/fail/statement/foreach-trailing-comma/main.sq:1:41:
+  |
+1 | implementation main { x <- foreach k, as regions { } }
+  |                                         ^
+"as" is a keyword

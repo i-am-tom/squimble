@@ -1,0 +1,6 @@
+tests/parser/fail/type/qualified-double/main.sq:1:12:
+  |
+1 | alias x = a.b.c
+  |            ^^^^
+unexpected ".b.c<newline>"
+expecting "::", '?', '_', alphanumeric character, declaration, or end of input

@@ -1,0 +1,1 @@
+implementation main { register cloud::bucket as regional { } }

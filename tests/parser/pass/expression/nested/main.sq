@@ -1,0 +1,1 @@
+implementation main { output x = [{ k: [1, 2] }, { k: [] }] }

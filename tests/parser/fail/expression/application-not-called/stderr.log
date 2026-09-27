@@ -1,0 +1,6 @@
+tests/parser/fail/expression/application-not-called/main.sq:1:49:
+  |
+1 | implementation main { output x = app::qualified }
+  |                                                 ^
+unexpected '}'
+expecting '_', alphanumeric character, or an argument list

@@ -1,0 +1,6 @@
+tests/parser/fail/statement/foreach-missing-family/main.sq:1:49:
+  |
+1 | implementation main { x <- foreach k in regions { } }
+  |                                                 ^^
+unexpected "{ "
+expecting "as", '_', or alphanumeric character

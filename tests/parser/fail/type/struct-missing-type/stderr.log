@@ -1,0 +1,6 @@
+tests/parser/fail/type/struct-missing-type/main.sq:1:20:
+  |
+1 | alias x = { name : }
+  |                    ^
+unexpected "}<newline>"
+expecting type

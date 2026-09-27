@@ -1,0 +1,6 @@
+tests/parser/fail/declaration/interface-wrong-order/main.sq:1:26:
+  |
+1 | interface x { output { } input { } }
+  |                          ^
+unexpected 'i'
+expecting '}'

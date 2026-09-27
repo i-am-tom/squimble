@@ -1,0 +1,6 @@
+tests/parser/fail/expression/index-unclosed/main.sq:1:38:
+  |
+1 | implementation main { output x = a[0 }
+  |                                      ^
+unexpected '}'
+expecting ']' or digit

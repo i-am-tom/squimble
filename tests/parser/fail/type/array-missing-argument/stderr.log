@@ -1,0 +1,6 @@
+tests/parser/fail/type/array-missing-argument/main.sq:1:17:
+  |
+1 | alias x = array<>
+  |                 ^
+unexpected "><newline>"
+expecting type

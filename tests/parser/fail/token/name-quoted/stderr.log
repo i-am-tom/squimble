@@ -1,0 +1,6 @@
+tests/parser/fail/token/name-quoted/main.sq:1:7:
+  |
+1 | alias "thing" = string
+  |       ^
+unexpected '"'
+expecting name

@@ -1,0 +1,6 @@
+tests/parser/fail/expression/operator-missing-operand/main.sq:1:38:
+  |
+1 | implementation main { output x = 1 + }
+  |                                      ^
+unexpected "}<newline>"
+expecting expression

@@ -1,0 +1,46 @@
+cabal-version: 3.12
+name: squimble
+version: 0.0.0
+
+library
+  exposed-modules:
+    Squimble.Grammar
+    Squimble.Grammar.Declaration
+    Squimble.Grammar.Expression
+    Squimble.Grammar.Interface
+    Squimble.Grammar.Monad
+    Squimble.Grammar.Span
+    Squimble.Grammar.Statement
+    Squimble.Grammar.Token
+    Squimble.Grammar.Type
+  build-depends:
+    , base
+    , containers
+    , megaparsec
+    , mtl
+    , parser-combinators
+    , scientific
+    , text
+  hs-source-dirs: library
+  default-language: GHC2024
+  ghc-options: -Wall -Werror -Wextra
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+    ParserTest
+  build-depends:
+    , base
+    , directory
+    , filepath
+    , hspec
+    , megaparsec
+    , squimble
+    , tasty
+    , tasty-discover
+    , tasty-hspec
+  build-tool-depends: tasty-discover:tasty-discover
+  hs-source-dirs: tests
+  default-language: GHC2024
+  ghc-options: -Wall -Werror -Wextra
