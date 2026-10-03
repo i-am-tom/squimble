@@ -2,25 +2,26 @@
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-module Squimble.Grammar.Declaration
+module Squimble.Parser.Declaration
   ( Module (..)
-  , module'
   , Declaration (..)
-  , declaration
   , Parameter (..)
+
+  , module'
+  , declaration
   , parameter
   ) where
 
 import Data.Kind qualified as Hask
 import GHC.Generics (Generic)
 import Prelude hiding (FilePath, span)
-import Squimble.Grammar.Expression
-import Squimble.Grammar.Interface
-import Squimble.Grammar.Statement
-import Squimble.Grammar.Token
-import Squimble.Grammar.Type
-import Squimble.Grammar.Monad (MonadParser)
-import Squimble.Grammar.Span (Spanner (..), Span, spanning)
+import Squimble.Parser.Expression
+import Squimble.Parser.Interface
+import Squimble.Parser.Statement
+import Squimble.Parser.Token
+import Squimble.Parser.Type
+import Squimble.Parser.Monad (MonadParser)
+import Squimble.Parser.Span (Spanner (..), Span, spanning)
 import Text.Megaparsec
 
 -- | A full module.

@@ -2,27 +2,28 @@
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-module Squimble.Grammar.Statement
+module Squimble.Parser.Statement
   ( Block (..)
-  , block
   , Statement (..)
-  , statement
   , StatementArm (..)
-  , statementArm
-  , Arguments (..)
-  , arguments
   , Argument (..)
+  , Arguments (..)
+
+  , block
+  , statement
+  , statementArm
   , argument
+  , arguments
   ) where
 
 import Data.Kind qualified as Hask
 import GHC.Generics (Generic)
 import Prelude hiding (span)
-import Squimble.Grammar.Expression
-import Squimble.Grammar.Token
-import Squimble.Grammar.Monad (MonadParser)
-import Squimble.Grammar.Span (Spanner (..), Span, spanning)
-import Squimble.Grammar.Type (Type, type')
+import Squimble.Parser.Expression
+import Squimble.Parser.Token
+import Squimble.Parser.Monad (MonadParser)
+import Squimble.Parser.Span (Spanner (..), Span, spanning)
+import Squimble.Parser.Type (Type, type')
 import Text.Megaparsec
 
 -- | An ordered set of statements.

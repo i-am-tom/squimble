@@ -4,15 +4,15 @@ version: 0.0.0
 
 library
   exposed-modules:
-    Squimble.Grammar
-    Squimble.Grammar.Declaration
-    Squimble.Grammar.Expression
-    Squimble.Grammar.Interface
-    Squimble.Grammar.Monad
-    Squimble.Grammar.Span
-    Squimble.Grammar.Statement
-    Squimble.Grammar.Token
-    Squimble.Grammar.Type
+    Squimble.Parser
+    Squimble.Parser.Declaration
+    Squimble.Parser.Expression
+    Squimble.Parser.Interface
+    Squimble.Parser.Monad
+    Squimble.Parser.Span
+    Squimble.Parser.Statement
+    Squimble.Parser.Token
+    Squimble.Parser.Type
   build-depends:
     , base
     , containers

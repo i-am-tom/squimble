@@ -2,7 +2,7 @@
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-module Squimble.Grammar.Token where
+module Squimble.Parser.Token where
 
 import Control.Monad (when)
 import Data.Functor (void)
@@ -12,8 +12,8 @@ import Data.Text qualified as Text
 import GHC.Generics (Generic)
 import Prelude hiding (FilePath, span)
 import Prelude qualified as P
-import Squimble.Grammar.Monad (MonadParser)
-import Squimble.Grammar.Span (Spanner (..), Span, spanning)
+import Squimble.Parser.Monad (MonadParser)
+import Squimble.Parser.Span (Spanner (..), Span, spanning)
 import Text.Megaparsec
 import Text.Megaparsec.Char (char, alphaNumChar, lowerChar, space1)
 import Text.Megaparsec.Char.Lexer (charLiteral, skipLineComment)

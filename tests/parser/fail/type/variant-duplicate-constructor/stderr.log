@@ -1,5 +1,0 @@
-tests/parser/fail/type/variant-duplicate-constructor/main.sq:1:34:
-  |
-1 | alias x = < none, some : string, none >
-  |                                  ^
-duplicate constructor "none"

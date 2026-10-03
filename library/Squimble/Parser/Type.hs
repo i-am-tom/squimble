@@ -2,21 +2,17 @@
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-module Squimble.Grammar.Type
+module Squimble.Parser.Type
   ( Type (..)
   , type'
   ) where
 
-import Control.Monad (foldM)
 import Data.Kind qualified as Hask
-import Data.Map.Strict (Map)
-import Data.Map.Strict qualified as Map
-import Data.Text (Text)
 import GHC.Generics (Generic)
 import Prelude hiding (span)
-import Squimble.Grammar.Monad (MonadParser)
-import Squimble.Grammar.Span (Spanner (..), Span, spanning)
-import Squimble.Grammar.Token
+import Squimble.Parser.Monad (MonadParser)
+import Squimble.Parser.Span (Spanner (..), Span, spanning)
+import Squimble.Parser.Token
 import Text.Megaparsec
 
 -- | A type used in the program.
@@ -25,8 +21,8 @@ data Type
   = TypeName Span (Maybe (Name "module")) (Name "type")
   | TypeArray Span Type
   | TypeDictionary Span Type
-  | TypeStruct Span (Map Field Type)
-  | TypeVariant Span (Map (Name "constructor") Type)
+  | TypeStruct Span [(Field, Type)]
+  | TypeVariant Span [(Name "constructor", Type)]
   | TypeOptional Span Type
   deriving (Eq, Ord) via Spanner Type
   deriving stock (Generic, Show)
@@ -64,49 +60,32 @@ dictionary span = keyword "map" *> do
 -- | Parse a 'TypeStruct'.
 struct :: MonadParser e m => Span -> m Type
 struct span = do
-  let entry :: MonadParser e m => m (Int, Field, Type)
+  let entry :: MonadParser e m => m (Field, Type)
       entry = do
-        offset  <- space *> getOffset
         key     <- field <* symbol ":"
         content <- type'
 
-        pure (offset, key, content)
+        pure (key, content)
 
-  entries <- separatedBetween "{" "," "}" entry
-  content <- unique entries "field" \(Field _ key) -> key
-
+  content <- separatedBetween "{" "," "}" entry
   pure (TypeStruct span content)
 
 -- | Parse a 'TypeVariant'.
 variant :: MonadParser e m => Span -> m Type
 variant span = do
-  entries <- separatedBetween "<" "," ">" constructor
-  content <- unique entries "constructor" \(Name _ key) -> key
-
+  content <- separatedBetween "<" "," ">" constructor
   pure (TypeVariant span content)
 
 -- | Parse a 'TypeVariant' constructor. An empty struct payload can be emitted.
-constructor :: MonadParser e m => m (Int, Name "constructor", Type)
+constructor :: MonadParser e m => m (Name "constructor", Type)
 constructor = do
   let unit :: MonadParser e m => m Type
-      unit = spanning "type" \span -> pure (TypeStruct span Map.empty)
+      unit = spanning "type" \span -> pure (TypeStruct span [])
 
-  offset  <- space *> getOffset
   key     <- name
   content <- alternatives [symbol ":" *> type', unit]
 
-  pure (offset, key, content)
-
--- | Collect entries into a 'Map', failing at the first repeated key.
-unique :: (MonadParser e m, Ord k) => [(Int, k, v)] -> String -> (k -> Text) -> m (Map k v)
-unique entries entity describe = foldM insert Map.empty entries
-  where
-    insert result (offset, key, content) = case Map.lookup key result of
-      Nothing -> pure (Map.insert key content result)
-      Just __ -> region (setErrorOffset offset) (fail message)
-        where
-          message :: String
-          message = "duplicate " ++ entity ++ " " ++ show (describe key)
+  pure (key, content)
 
 -- | Parse a 'TypeName'.
 typename :: MonadParser e m => Span -> m Type

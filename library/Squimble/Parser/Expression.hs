@@ -2,11 +2,12 @@
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-module Squimble.Grammar.Expression
+module Squimble.Parser.Expression
   ( Expression (..)
-  , expression
-  , Operator (..)
   , ExpressionArm (..)
+  , Operator (..)
+
+  , expression
   , expressionArm
   ) where
 
@@ -16,10 +17,10 @@ import Data.Text (Text)
 import Data.Text qualified as Text
 import GHC.Generics (Generic)
 import Prelude hiding (span)
-import Squimble.Grammar.Token
-import Squimble.Grammar.Monad (MonadParser)
-import Squimble.Grammar.Span (Spanner (..), Span, spanning)
-import Squimble.Grammar.Type (Type, type')
+import Squimble.Parser.Token
+import Squimble.Parser.Monad (MonadParser)
+import Squimble.Parser.Span (Spanner (..), Span, spanning)
+import Squimble.Parser.Type (Type, type')
 import Text.Megaparsec
 import Text.Megaparsec.Char.Lexer (decimal, float, signed)
 

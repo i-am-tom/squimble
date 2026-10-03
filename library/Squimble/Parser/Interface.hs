@@ -2,15 +2,15 @@
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE UndecidableInstances #-}
 
-module Squimble.Grammar.Interface where
+module Squimble.Parser.Interface where
 
 import Data.Kind qualified as Hask
 import GHC.Generics (Generic)
 import Prelude hiding (span)
-import Squimble.Grammar.Token
-import Squimble.Grammar.Type
-import Squimble.Grammar.Monad (MonadParser)
-import Squimble.Grammar.Span (Spanner (..), Span, spanning)
+import Squimble.Parser.Token
+import Squimble.Parser.Type
+import Squimble.Parser.Monad (MonadParser)
+import Squimble.Parser.Span (Spanner (..), Span, spanning)
 import Text.Megaparsec
 
 -- | The inputs to an interface.

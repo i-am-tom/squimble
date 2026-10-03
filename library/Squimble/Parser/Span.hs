@@ -2,15 +2,14 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE UndecidableInstances #-}
 
--- | Utilities for handling source spans.
-module Squimble.Grammar.Span where
+module Squimble.Parser.Span where
 
 import Control.Monad.Fix (MonadFix (..))
 import Data.Function (on)
 import Data.Kind (Constraint, Type)
 import GHC.Generics
 import Prelude hiding (span)
-import Squimble.Grammar.Monad (MonadParser)
+import Squimble.Parser.Monad (MonadParser)
 import Text.Megaparsec (SourcePos, getSourcePos, label)
 
 -- | The start and end of a source span in a program.

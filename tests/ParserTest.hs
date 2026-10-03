@@ -6,7 +6,7 @@ module ParserTest where
 import Control.Monad (filterM, when, unless)
 import Data.Foldable (for_)
 import Data.Void (Void)
-import Squimble.Grammar (Module, module')
+import Squimble.Parser (Module, module')
 import System.Directory (doesDirectoryExist, listDirectory)
 import System.FilePath ((</>))
 import Test.Hspec
